@@ -2,7 +2,7 @@ import re
 from scrapy import Selector
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, MapCompose
-from .items import AutoYoulaItem
+from .items import AutoYoulaItem, HHVacancyItem
 
 
 def get_autor(js_string):
@@ -34,3 +34,13 @@ class AutoYoulaLoader(ItemLoader):
     autor_out = TakeFirst()
     specifications_in = MapCompose(get_specifications)
     specifications_out = specifications_out
+
+
+class HHVacancyLoader(ItemLoader):
+    default_item_class = HHVacancyItem
+    title_out = TakeFirst()
+    url_out = TakeFirst()
+    description_in = ''.join
+    description_out = TakeFirst()
+    salary_in = ''.join
+    salary_out = TakeFirst()
