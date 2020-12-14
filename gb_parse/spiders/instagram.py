@@ -1,8 +1,7 @@
 import datetime as dt
 import json
 import scrapy
-from ..items import InstaTag, InstaPost, InstaUser, InstaFollow
-
+from ..items import InstaTag, InstaPost
 
 class InstagramSpider(scrapy.Spider):
     name = 'instagram'
